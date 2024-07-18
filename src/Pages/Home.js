@@ -4,7 +4,6 @@ import SearchBar from '../Components/SearchBar';
 const Home = () => {
     return (
         <div>
-            DA HOME
             <SearchBar />
         </div>
     )
