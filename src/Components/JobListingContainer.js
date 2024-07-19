@@ -1,11 +1,12 @@
 import React from 'react';
 import "./JobListingContainer.css";
-import JobListing from "./JobListing";
+// import JobListing from "./JobListing";
 
-const JobListingContainer = () => {
+const JobListingContainer = ({searchedJobs}) => {
+    console.log(searchedJobs, 'searchedJobs')
     return (
         <div className="container">
-           JOB LISTING CONTAINER
+           {`{${searchedJobs.title}}`}
         </div>
     )
 }
