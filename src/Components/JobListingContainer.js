@@ -3,8 +3,6 @@ import "./JobListingContainer.css";
 import JobListing from "./JobListing";
 
 const JobListingContainer = ({axiosResults}) => {
-    console.log(axiosResults, 'axiosResults')
-
     const loadJobs = () => {
         return (axiosResults.map((job) => {
                  return (
