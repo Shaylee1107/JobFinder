@@ -3,6 +3,7 @@ import SearchBar from '../Components/SearchBar';
 import JobListingContainer from '../Components/JobListingContainer';
 import FilterSearchResultsForm from '../Components/FilterSearchResultsForm';
 import axios from 'axios';
+// import NextPage from '../Components/NextPageArrows';
 import "./Home.css";
 
 const Home = () => {
@@ -75,6 +76,7 @@ const Home = () => {
             <SearchBar grabFormData={grabFormData}/>
             <FilterSearchResultsForm grabFilteredFormData={grabFilteredFormData}/>
             {loadJobListingContainer()}
+            {/* <NextPage /> */}
         </div>
     )
 }
