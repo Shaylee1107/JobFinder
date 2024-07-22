@@ -12,8 +12,8 @@ const salaryOptions = [
   ]
 
 const hoursOptions = [
-  { name: 'hours', value: 'full_time', label: 'Full-time' },
-  { name: 'hours', value: 'part_time', label: 'Part-time' },
+  { name: 'full_time', value: '1', label: 'Full-time' },
+  { name: 'part_time', value: '1', label: 'Part-time' },
 ]
 
 const sortByOptions = [
@@ -23,26 +23,107 @@ const sortByOptions = [
   ]
 
   const jobTypeOptions = [
-    { name: 'job_type', value: 'permanent', label: 'Permanent' },
-    { name: 'job_type', value: 'contract', label: 'Contract' },
+    { name: 'permanent', value: '1', label: 'Permanent' },
+    { name: 'contract', value: '1', label: 'Contract' },
   ]
 
 const FilterSearchResultsForm = ({grabFilteredFormData}) => {
     const INITIAL_STATE = {
-        salary: '25000',
-        hours: 'full_time',
-        job_type: 'permanent',
-        sort_by: 'salary'
+        salary: '',
+        full_time: '',
+        part_time: '',
+        permanent: '',
+        contract: '',
+        sort_by: ''
     }
     const  [formData, setFormData] =  useState(INITIAL_STATE);
 
-	const  handleChange = (evt) => {
-        const value = evt.value;
-		setFormData({
-            ...formData,
-            [evt.name]: value
-          });
-	};
+	const handleChange = (evt) => {
+    const value = evt.value;
+    const name = evt.name;
+   
+      if(name === 'full_time'){
+        setFormData({
+          ...formData,
+          [evt.name]: value, 
+          part_time: ''
+        })
+      } else if(name === 'part_time'){
+        setFormData({
+          ...formData,
+          [evt.name]: value, 
+          full_time: ''
+        })
+      } else if(name === 'permanent'){
+        setFormData({
+          ...formData,
+          [evt.name]: value, 
+          contract: ''
+        })
+      } else if(name === 'contract'){
+        setFormData({
+          ...formData, 
+          [evt.name]: value, 
+          permanent: ''
+        })
+      } else {
+        setFormData({
+          ...formData,
+          [evt.name]: value
+        });
+      }
+    }
+
+  //  makeOnlyOneValuePresent(evt.name);
+
+        //   for (let prop in object) {
+        //     if (object.hasOwnProperty(prop)) {
+        //         if (object[prop] === value)
+        //             return prop;
+        //     }
+        // }
+
+    // if(formData.full_time === '1'){
+    //   setFormData({
+    //     ...formData,
+    //     part_time: ''
+    //   });
+    // } else if (formData.part_time === '1'){
+    //   setFormData({
+    //     ...formData,
+    //     full_time: ''
+    //   });
+    // }
+	
+
+  // const makeOnlyOneValuePresent = (name) => {
+  //     const updatedForm = () => {
+  //       if(name === 'full_time'){
+  //         return {...formData, part_time: ''}
+  //       } else if(name === 'part_time'){
+  //         return {...formData, full_time: ''}
+  //       }
+  //     }
+    
+  //   setFormData(updatedForm());
+
+
+  //     // if (formData[param.full_time] === '1'){
+  //     //   setFormData({
+  //     //     ...formData,
+  //     //     part_time: ''
+  //     //   });
+  //     // } else {
+  //     //   setFormData({
+  //     //     ...formData,
+  //     //     full_time: ''
+  //     //   });
+  //     // }
+  //     setRender(render => render + 1);
+  //   }
+  
+  
+
 
     useEffect(() => {
         const handleSubmit = () => {

@@ -5,7 +5,8 @@ import FilterSearchResultsForm from '../Components/FilterSearchResultsForm';
 import axios from 'axios';
 // import NextPage from '../Components/NextPageArrows';
 import "./Home.css";
-const BASE_URL = 'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=e8c48744&app_key=317b825c177fbca1dc98cc72803c5352';
+
+const BASE_URL = 'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c';
 
 const Home = () => {
     const [searchedJobs, setSearchedJobs] = useState(false);
@@ -17,6 +18,7 @@ const Home = () => {
     }, []);
 
     const grabFilteredFormData = useCallback((filterdFormData) => {
+        console.log(filterdFormData, 'filteredFormData')
         setFilteredJobs(filterdFormData);
     }, []);
 
@@ -63,29 +65,36 @@ const Home = () => {
     useEffect(() => {
         const sendAxiosRequest = async () => {
             if(filteredJobs !== false){
+                const params = {
+                    what: `${searchedJobs.title || ''}`,
+                    where: `${searchedJobs.location || ''}`,
+                    sort_by: `${filteredJobs.sort_by}`,
+                    salary_min: `${filteredJobs.salary}`,
+                    full_time: `${filteredJobs.full_time}`,
+                    part_time: `${filteredJobs.part_time}`,
+                    permanent: `${filteredJobs.permanent}`,
+                    contract: `${filteredJobs.contract}`
+                };
+
+                for (const key of Object.keys(params)) {
+                  if (params[key] === '') {
+                    delete params[key];
+                  }
+                }
+
                 if(searchedJobs !== false){
-                         axios({
+                         await axios({
                             method: "get",
                             url: `${BASE_URL}`,
-                            params: {
-                              what: `${searchedJobs.title}`,
-                              where: `${searchedJobs.location}`,
-                              sort_by: `${filteredJobs.sort_by}`,
-                              salary_min: `${filteredJobs.salary}`,
-                            }
-                          }).then(function (response) {
+                            params
+                          }).then((response) => {
                             setAxiosResults(response.data.results);
-                          });
+                          })
                 } else {
-                        // let results = await axios.get(`${BASE_URL}&sort_by=${filteredJobs.sort_by}&salary_min=${filteredJobs.salary}&${filteredJobs.hours}=1&${filteredJobs.job_type}=1&content-type=application/json`);
-                        // setAxiosResults(results.data.results);
-                    axios({
+                    await axios({
                         method: "get",
                         url: `${BASE_URL}`,
-                        params: {
-                          sort_by: `${filteredJobs.sort_by}`,
-                          salary_min: `${filteredJobs.salary}`,
-                        }
+                        params
                       }).then(function (response) {
                         setAxiosResults(response.data.results);
                       });
@@ -93,8 +102,6 @@ const Home = () => {
                 } 
             } 
         
-        
-
        sendAxiosRequest();
     }, [filteredJobs])
 
