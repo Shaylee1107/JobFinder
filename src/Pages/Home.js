@@ -6,12 +6,12 @@ import axios from 'axios';
 import NextPageArrows from '../Components/NextPageArrows';
 import "./Home.css";
 
-const BASE_URL = 'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c';
-
 const Home = () => {
     const [searchedJobs, setSearchedJobs] = useState(false);
     const [axiosResults, setAxiosResults] = useState(false);
     const [filteredJobs, setFilteredJobs] = useState(false);
+    const [pageNum, setPageNum] = useState(1);
+    const BASE_URL = `https://api.adzuna.com/v1/api/jobs/us/search/${pageNum}?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c`;
 
     const grabFormData = useCallback((formData) => {
         setSearchedJobs(formData);
@@ -20,6 +20,14 @@ const Home = () => {
     const grabFilteredFormData = useCallback((filterdFormData) => {
         setFilteredJobs(filterdFormData);
     }, []);
+
+    const flipPageNum = (direction) => {
+        if(direction === 'left' && pageNum > 1){
+            setPageNum(num => num - 1);
+        } else {
+            setPageNum(num => num + 1);
+        }
+    }
 
     const loadJobListingContainer = () => {
         if(axiosResults !== false){
@@ -102,14 +110,14 @@ const Home = () => {
             } 
         
        sendAxiosRequest();
-    }, [filteredJobs])
+    }, [filteredJobs, searchedJobs])
 
     return (
         <div>
             <SearchBar grabFormData={grabFormData}/>
             <FilterSearchResultsForm grabFilteredFormData={grabFilteredFormData}/>
             {loadJobListingContainer()}
-            <NextPageArrows />
+            <NextPageArrows flipPageNum={flipPageNum}/>
         </div>
     )
 }
