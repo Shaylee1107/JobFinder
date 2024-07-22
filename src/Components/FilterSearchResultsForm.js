@@ -12,12 +12,11 @@ const salaryOptions = [
   ]
 
 const hoursOptions = [
-  { name: 'hours', value: 'full-time', label: 'Full-time' },
-  { name: 'hours', value: 'part-time', label: 'Part-time' },
+  { name: 'hours', value: 'full_time', label: 'Full-time' },
+  { name: 'hours', value: 'part_time', label: 'Part-time' },
 ]
 
 const sortByOptions = [
-    { name: 'sort_by', value: 'hybrid', label: 'Hybrid' },
     { name: 'sort_by', value: 'date', label: 'Date' },
     { name: 'sort_by', value: 'salary', label: 'Salary' },
     { name: 'sort_by', value: 'relevance', label: 'Relevance' },
@@ -31,7 +30,7 @@ const sortByOptions = [
 const FilterSearchResultsForm = ({grabFilteredFormData}) => {
     const INITIAL_STATE = {
         salary: '25000',
-        hours: 'full-time',
+        hours: 'full_time',
         job_type: 'permanent',
         sort_by: 'salary'
     }
