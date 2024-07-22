@@ -14,19 +14,27 @@ const Home = () => {
     const BASE_URL = `https://api.adzuna.com/v1/api/jobs/us/search/${pageNum}?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c`;
 
     const grabFormData = useCallback((formData) => {
+        setPageNum(1);
         setSearchedJobs(formData);
     }, []);
 
     const grabFilteredFormData = useCallback((filterdFormData) => {
+        setPageNum(1);
         setFilteredJobs(filterdFormData);
     }, []);
 
     const flipPageNum = (direction) => {
-        if(direction === 'left' && pageNum > 1){
-            setPageNum(num => num - 1);
+        if(direction === 'left'){
+            if(pageNum > 1){
+                setPageNum(num => num - 1);
+            }
         } else {
             setPageNum(num => num + 1);
         }
+    }
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     const loadJobListingContainer = () => {
@@ -52,35 +60,33 @@ const Home = () => {
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
-            if(searchedJobs !== false){
-                await axios({
-                        method: "get",
-                        url: `${BASE_URL}`,
-                        params: {
-                          title_only: `${searchedJobs.title}`,
-                          where: `${searchedJobs.location}`
-                        }
-                      }).then((response) => {
-                        setAxiosResults(response.data.results);
-                      });
-            }
+            scrollToTop();
+            await axios({
+               method: "get",
+               url: `${BASE_URL}`,
+             }).then((response) => {
+               setAxiosResults(response.data.results);
+             });
         }
 
        sendAxiosRequest();
-    }, [searchedJobs])
+    }, [pageNum])
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
-            if(filteredJobs !== false){
+            console.log(pageNum, 'pageNum')
+            if(searchedJobs !== false || filteredJobs !== false){
+                scrollToTop();
                 const params = {
                     what: `${searchedJobs.title || ''}`,
+                    title_only: `${searchedJobs.title || ''}`,
                     where: `${searchedJobs.location || ''}`,
-                    sort_by: `${filteredJobs.sort_by}`,
-                    salary_min: `${filteredJobs.salary}`,
-                    full_time: `${filteredJobs.full_time}`,
-                    part_time: `${filteredJobs.part_time}`,
-                    permanent: `${filteredJobs.permanent}`,
-                    contract: `${filteredJobs.contract}`
+                    sort_by: `${filteredJobs.sort_by || ''}`,
+                    salary_min: `${filteredJobs.salary || ''}`,
+                    full_time: `${filteredJobs.full_time || ''}`,
+                    part_time: `${filteredJobs.part_time || ''}`,
+                    permanent: `${filteredJobs.permanent || ''}`,
+                    contract: `${filteredJobs.contract || ''}`
                 };
 
                 for (const key of Object.keys(params)) {
@@ -89,28 +95,18 @@ const Home = () => {
                   }
                 }
 
-                if(searchedJobs !== false){
-                         await axios({
-                            method: "get",
-                            url: `${BASE_URL}`,
-                            params
-                          }).then((response) => {
-                            setAxiosResults(response.data.results);
-                          })
-                } else {
-                    await axios({
-                        method: "get",
-                        url: `${BASE_URL}`,
-                        params
-                      }).then(function (response) {
-                        setAxiosResults(response.data.results);
-                      });
-                    }
+                await axios({
+                    method: "get",
+                    url: `${BASE_URL}`,
+                    params
+                  }).then(function (response) {
+                    setAxiosResults(response.data.results);
+                  }); 
                 } 
             } 
         
        sendAxiosRequest();
-    }, [filteredJobs, searchedJobs])
+    }, [searchedJobs, filteredJobs, pageNum])
 
     return (
         <div>
