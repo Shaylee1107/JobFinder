@@ -18,7 +18,6 @@ const Home = () => {
     }, []);
 
     const grabFilteredFormData = useCallback((filterdFormData) => {
-        console.log(filterdFormData, 'filteredFormData')
         setFilteredJobs(filterdFormData);
     }, []);
 

@@ -73,58 +73,7 @@ const FilterSearchResultsForm = ({grabFilteredFormData}) => {
         });
       }
     }
-
-  //  makeOnlyOneValuePresent(evt.name);
-
-        //   for (let prop in object) {
-        //     if (object.hasOwnProperty(prop)) {
-        //         if (object[prop] === value)
-        //             return prop;
-        //     }
-        // }
-
-    // if(formData.full_time === '1'){
-    //   setFormData({
-    //     ...formData,
-    //     part_time: ''
-    //   });
-    // } else if (formData.part_time === '1'){
-    //   setFormData({
-    //     ...formData,
-    //     full_time: ''
-    //   });
-    // }
-	
-
-  // const makeOnlyOneValuePresent = (name) => {
-  //     const updatedForm = () => {
-  //       if(name === 'full_time'){
-  //         return {...formData, part_time: ''}
-  //       } else if(name === 'part_time'){
-  //         return {...formData, full_time: ''}
-  //       }
-  //     }
     
-  //   setFormData(updatedForm());
-
-
-  //     // if (formData[param.full_time] === '1'){
-  //     //   setFormData({
-  //     //     ...formData,
-  //     //     part_time: ''
-  //     //   });
-  //     // } else {
-  //     //   setFormData({
-  //     //     ...formData,
-  //     //     full_time: ''
-  //     //   });
-  //     // }
-  //     setRender(render => render + 1);
-  //   }
-  
-  
-
-
     useEffect(() => {
         const handleSubmit = () => {
             if(formData !== INITIAL_STATE){
