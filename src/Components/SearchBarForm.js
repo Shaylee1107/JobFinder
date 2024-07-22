@@ -18,7 +18,6 @@ const SearchBarForm = ({grabFormData}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         grabFormData(formData);
-        setFormData(INITIAL_STATE);
     }
 
 return  (
