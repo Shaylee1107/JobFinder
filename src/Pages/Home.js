@@ -3,7 +3,7 @@ import SearchBar from '../Components/SearchBar';
 import JobListingContainer from '../Components/JobListingContainer';
 import FilterSearchResultsForm from '../Components/FilterSearchResultsForm';
 import axios from 'axios';
-// import NextPage from '../Components/NextPageArrows';
+import NextPageArrows from '../Components/NextPageArrows';
 import "./Home.css";
 
 const BASE_URL = 'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c';
@@ -109,7 +109,7 @@ const Home = () => {
             <SearchBar grabFormData={grabFormData}/>
             <FilterSearchResultsForm grabFilteredFormData={grabFilteredFormData}/>
             {loadJobListingContainer()}
-            {/* <NextPage /> */}
+            <NextPageArrows />
         </div>
     )
 }
