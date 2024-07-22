@@ -1,3 +1,13 @@
 .JobListContainer {
     border: 1px solid blue; 
 }
+
+.bookmark-icon {
+    width: 20px; 
+    height: 30px; 
+}
+
+.blue-bookmark-icon {
+    width: 25px; 
+    height: 35px; 
+}
