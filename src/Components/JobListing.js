@@ -12,12 +12,8 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
 
     useEffect(() => {
         const addToFavorites = () => {
-
-        //     const soft = array.filter(({ categories }) =>
-        //     categories.some(({ name }) => name === 'soft')
-        //   );
-            
             if(addFavJob.length > 0){
+
                 addFavJob.map((job) => {
                     if(job.id !== id){
                             setAddFavJob(
@@ -36,7 +32,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
                         )
                     }
                 });
-                
+
             } else {
                 setAddFavJob(
                     [
