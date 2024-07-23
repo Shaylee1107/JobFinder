@@ -12,17 +12,48 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
 
     useEffect(() => {
         const addToFavorites = () => {
-            setAddFavJob(
+
+        //     const soft = array.filter(({ categories }) =>
+        //     categories.some(({ name }) => name === 'soft')
+        //   );
+            
+            if(addFavJob.length > 0){
+                addFavJob.map((job) => {
+                    if(job.id !== id){
+                            setAddFavJob(
+                            [
+                               ...addFavJob,
+                               {
+                               id: `${id}`,
+                               title: `${title}`, 
+                               company: `${company}`, 
+                               location: `${location}`, 
+                               salary: `${salary}`, 
+                               description: `${description}`, 
+                               companyWebsite: `${companyWebsite}` 
+                               }
+                            ]
+                        )
+                    }
+                });
                 
-                   {
-                   id: `${id}`,
-                   title: `${title}`, 
-                   company: `${company}`, 
-                   location: `${location}`, 
-                   salary: `${salary}`, 
-                   description: `${description}`, 
-                   companyWebsite: `${companyWebsite}` 
-                   })
+            } else {
+                setAddFavJob(
+                    [
+                       ...addFavJob,
+                       {
+                       id: `${id}`,
+                       title: `${title}`, 
+                       company: `${company}`, 
+                       location: `${location}`, 
+                       salary: `${salary}`, 
+                       description: `${description}`, 
+                       companyWebsite: `${companyWebsite}` 
+                       }
+                    ]
+                )
+            }
+             
         }
 
         if(isBookMarked === true){
