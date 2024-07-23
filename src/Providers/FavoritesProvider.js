@@ -4,12 +4,14 @@ import { FavoritesContext } from '../Context/FavoritesContext';
 const FavoritesProvider = ({ children }) => {
     const [addFavJob, setAddFavJob] = useState([]);
     const [loadFavJobs, setLoadFavJobs] = useState([]);
-
-    // console.log(addFavJob, 'addFavJob in provider')
   
-    // useEffect(() => {
-    //     localStorage.setItem('favorites', JSON.stringify(addFavJob));
-    //   }, [addFavJob]);
+    useEffect(() => {
+        // let favorites = JSON.parse(localStorage.getItem('favorites'));
+        // if(favorites.id === undefined){
+        //     localStorage.setItem('favorites', JSON.stringify(addFavJob));
+        // }
+        localStorage.setItem('favorites', JSON.stringify(addFavJob));
+      }, [addFavJob]);
 
     console.log(addFavJob, 'addFavJob in provider')
 

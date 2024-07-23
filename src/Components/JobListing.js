@@ -13,8 +13,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
     useEffect(() => {
         const addToFavorites = () => {
             setAddFavJob(
-                [
-                   ...addFavJob,
+                
                    {
                    id: `${id}`,
                    title: `${title}`, 
@@ -23,9 +22,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
                    salary: `${salary}`, 
                    description: `${description}`, 
                    companyWebsite: `${companyWebsite}` 
-                   }
-                ]
-            )
+                   })
         }
 
         if(isBookMarked === true){
