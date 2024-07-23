@@ -29,3 +29,11 @@
     align-content: center;
     display: inline-block;
 }
+
+.pageNum {
+    position: absolute;
+    left: 50%;
+    background-color: grey;
+    padding: 5px 10px; 
+    color: white; 
+}

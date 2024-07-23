@@ -1,9 +1,10 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useContext} from 'react';
 import SearchBar from '../Components/SearchBar';
 import JobListingContainer from '../Components/JobListingContainer';
 import FilterSearchResultsForm from '../Components/FilterSearchResultsForm';
 import axios from 'axios';
 import NextPageArrows from '../Components/NextPageArrows';
+// import { FavoritesContext } from '../Context/FavoritesContext';
 import "./Home.css";
 
 const Home = () => {
@@ -11,6 +12,8 @@ const Home = () => {
     const [axiosResults, setAxiosResults] = useState(false);
     const [filteredJobs, setFilteredJobs] = useState(false);
     const [pageNum, setPageNum] = useState(1);
+    // const { setAddFavJob } = useContext(FavoritesContext);
+
     const BASE_URL = `https://api.adzuna.com/v1/api/jobs/us/search/${pageNum}?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c`;
 
     const grabFormData = useCallback((formData) => {
@@ -40,7 +43,7 @@ const Home = () => {
     const loadJobListingContainer = () => {
         if(axiosResults !== false){
             return (
-                <JobListingContainer axiosResults={axiosResults}/>
+                <JobListingContainer axiosResults={axiosResults} />
             )
         }
     }
@@ -74,7 +77,6 @@ const Home = () => {
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
-            console.log(pageNum, 'pageNum')
             if(searchedJobs !== false || filteredJobs !== false){
                 scrollToTop();
                 const params = {
@@ -113,7 +115,7 @@ const Home = () => {
             <SearchBar grabFormData={grabFormData}/>
             <FilterSearchResultsForm grabFilteredFormData={grabFilteredFormData}/>
             {loadJobListingContainer()}
-            <NextPageArrows flipPageNum={flipPageNum}/>
+            <NextPageArrows flipPageNum={flipPageNum} pageNum={pageNum}/>
         </div>
     )
 }

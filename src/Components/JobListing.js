@@ -1,12 +1,49 @@
-import React, {useState} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { FavoritesContext } from '../Context/FavoritesContext';
 import './JobListings.css';
 
-const JobListings = ({title, company, location, salary, description, companyWebsite}) => {
+const JobListings = ({ title, company, location, salary, description, companyWebsite, id }) => {
     const [isBookMarked, setIsBookMarked] = useState(false);
+    const { setAddFavJob, addFavJob } = useContext(FavoritesContext);
 
     const redirectToCompanyWebsite = () => {
         window.open(companyWebsite, "_blank", "noreferrer");
     }
+
+    useEffect(() => {
+        const addToFavorites = () => {
+            setAddFavJob(
+                [
+                   ...addFavJob,
+                   {
+                   id: `${id}`,
+                   title: `${title}`, 
+                   company: `${company}`, 
+                   location: `${location}`, 
+                   salary: `${salary}`, 
+                   description: `${description}`, 
+                   companyWebsite: `${companyWebsite}` 
+                   }
+                ]
+            )
+        }
+
+        if(isBookMarked === true){
+            addToFavorites();
+        }
+    }, [isBookMarked])
+
+    // useEffect(() => {
+    //     const removeFromFavorites = () => {
+    //         if(){
+
+    //         }
+    //     }
+
+    //     if(isBookMarked === false){
+    //         removeFromFavorites();
+    //     }
+    // }, [isBookMarked])
 
     const showBookMark = () => {
         if(isBookMarked === false){
