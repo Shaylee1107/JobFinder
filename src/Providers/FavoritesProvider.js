@@ -5,7 +5,9 @@ const FavoritesProvider = ({ children }) => {
     const [addFavJob, setAddFavJob] = useState([]);
   
     useEffect(() => {
-        localStorage.setItem('favorites', JSON.stringify([]));
+        if(localStorage.favorites === undefined){
+            localStorage.setItem('favorites', JSON.stringify([]));
+        }
       }, []);
 
       useEffect(() => {
@@ -19,8 +21,8 @@ const FavoritesProvider = ({ children }) => {
       }
         
         
+      console.log(local, 'LOCAL NOW')
         
-        console.log(local, 'localNOW')
         
       }, [addFavJob])
 
