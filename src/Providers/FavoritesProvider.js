@@ -3,26 +3,30 @@ import { FavoritesContext } from '../Context/FavoritesContext';
 
 const FavoritesProvider = ({ children }) => {
     const [addFavJob, setAddFavJob] = useState([]);
-    const [loadFavJobs, setLoadFavJobs] = useState([]);
   
     useEffect(() => {
-        // let favorites = JSON.parse(localStorage.getItem('favorites'));
-        // if(favorites.id === undefined){
-        //     localStorage.setItem('favorites', JSON.stringify(addFavJob));
-        // }
-        localStorage.setItem('favorites', JSON.stringify(addFavJob));
-      }, [addFavJob]);
+        localStorage.setItem('favorites', JSON.stringify([]));
+      }, []);
 
-    console.log(addFavJob, 'addFavJob in provider')
-
-    useEffect(() => {
-      const items = JSON.parse(localStorage.getItem('Favorites'));
-        // console.log(items, 'items in loading vav jobs provioder')
-    }, [loadFavJobs]);
+      useEffect(() => {
+        const local = JSON.parse(localStorage.favorites);
+        
+        for(let i = addFavJob.length-1; i <= addFavJob.length-1; i++){
+            if(addFavJob[i] !== undefined){
+                local.push(addFavJob[i]);
+                localStorage.setItem('favorites', JSON.stringify(local));
+            }
+      }
+        
+        
+        
+        console.log(local, 'localNOW')
+        
+      }, [addFavJob])
 
     return (
         <>
-        <FavoritesContext.Provider value={{ addFavJob, setAddFavJob, loadFavJobs, setLoadFavJobs }}>
+        <FavoritesContext.Provider value={{ addFavJob, setAddFavJob }}>
           {children}
         </FavoritesContext.Provider>
         </>

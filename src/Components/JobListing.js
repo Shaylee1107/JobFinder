@@ -12,29 +12,13 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
 
     useEffect(() => {
         const addToFavorites = () => {
-            if(addFavJob.length > 0){
-
-                addFavJob.map((job) => {
-                    if(job.id !== id){
-                            setAddFavJob(
-                            [
-                               ...addFavJob,
-                               {
-                               id: `${id}`,
-                               title: `${title}`, 
-                               company: `${company}`, 
-                               location: `${location}`, 
-                               salary: `${salary}`, 
-                               description: `${description}`, 
-                               companyWebsite: `${companyWebsite}` 
-                               }
-                            ]
-                        )
-                    }
+                const array = [];
+                addFavJob.forEach((job) => {
+                    array.push(job.id);
                 });
 
-            } else {
-                setAddFavJob(
+                if(array.includes(id) === false){
+                    setAddFavJob(
                     [
                        ...addFavJob,
                        {
@@ -48,8 +32,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
                        }
                     ]
                 )
-            }
-             
+            }  
         }
 
         if(isBookMarked === true){
@@ -57,17 +40,23 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
         }
     }, [isBookMarked])
 
-    // useEffect(() => {
-    //     const removeFromFavorites = () => {
-    //         if(){
+    useEffect(() => {
+        const removeFromFavorites = () => {
+            const array1 = [];
+            addFavJob.forEach((job) => {
+                array1.push(job.id);
+            })
+          if(array1.includes(id)){
+                setAddFavJob(addFavJob.filter((job) => {
+                    return job.id !== id; 
+                }))
+            }
+        }
 
-    //         }
-    //     }
-
-    //     if(isBookMarked === false){
-    //         removeFromFavorites();
-    //     }
-    // }, [isBookMarked])
+        if(isBookMarked === false){
+            removeFromFavorites();
+        }
+    }, [isBookMarked])
 
     const showBookMark = () => {
         if(isBookMarked === false){
