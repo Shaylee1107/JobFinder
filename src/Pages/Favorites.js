@@ -7,9 +7,7 @@ const Favorites = () => {
 
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem('favorites'));
-        console.log(items, 'items')
         setLoadFavJobs(items)
-          // console.log(items, 'items in loading vav jobs provioder')
       }, []);
 
       const loadJobs = () => {
