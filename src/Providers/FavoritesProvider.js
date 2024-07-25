@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { FavoritesContext } from '../Context/FavoritesContext';
 
 const FavoritesProvider = ({ children }) => {
-    const [addFavJob, setAddFavJob] = useState([]);
+    const [addFavJob, setAddFavJob] = useState(undefined);
+    const [isThere, setIsThere] = useState(false);
   
     useEffect(() => {
         if(localStorage.favorites === undefined){
@@ -11,19 +12,32 @@ const FavoritesProvider = ({ children }) => {
       }, []);
 
       useEffect(() => {
-        const local = JSON.parse(localStorage.favorites);
-        
-        for(let i = addFavJob.length-1; i <= addFavJob.length-1; i++){
-            if(addFavJob[i] !== undefined){
-                local.push(addFavJob[i]);
-                localStorage.setItem('favorites', JSON.stringify(local));
+        let local = JSON.parse(localStorage.favorites);
+
+        const updateLocalStorage = () => {
+            console.log(isThere, 'isThere')
+            if(isThere === true){
+                setIsThere(false);
+                let filterdArray = local.filter((job) => {
+                    return job.id !== addFavJob.id;
+                });
+                console.log(filterdArray, 'filteredArray')
+                return localStorage.setItem('favorites', JSON.stringify(filterdArray));
+            } else {
+                local.push(addFavJob);
+                return localStorage.setItem('favorites', JSON.stringify(local));
             }
-      }
-        
-        
-      console.log(local, 'LOCAL NOW')
-        
-        
+        }
+
+        if(addFavJob !== undefined){
+                local.forEach((job) => {
+                    if(job.id === addFavJob.id){
+                        setIsThere(true); 
+                    }
+                });
+                updateLocalStorage();
+        }
+
       }, [addFavJob])
 
     return (

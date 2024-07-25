@@ -4,7 +4,7 @@ import './JobListings.css';
 
 const JobListings = ({ title, company, location, salary, description, companyWebsite, id }) => {
     const [isBookMarked, setIsBookMarked] = useState(false);
-    const { setAddFavJob, addFavJob } = useContext(FavoritesContext);
+    const { setAddFavJob } = useContext(FavoritesContext);
 
     const redirectToCompanyWebsite = () => {
         window.open(companyWebsite, "_blank", "noreferrer");
@@ -12,27 +12,39 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
 
     useEffect(() => {
         const addToFavorites = () => {
-                const array = [];
-                addFavJob.forEach((job) => {
-                    array.push(job.id);
-                });
+            //     const array = [];
+            //     addFavJob.forEach((job) => {
+            //         array.push(job.id);
+            //     });
 
-                if(array.includes(id) === false){
-                    setAddFavJob(
-                    [
-                       ...addFavJob,
-                       {
-                       id: `${id}`,
-                       title: `${title}`, 
-                       company: `${company}`, 
-                       location: `${location}`, 
-                       salary: `${salary}`, 
-                       description: `${description}`, 
-                       companyWebsite: `${companyWebsite}` 
-                       }
-                    ]
+            //     if(array.includes(id) === false){
+            //         setAddFavJob(
+            //         [
+            //            ...addFavJob,
+            //            {
+            //            id: `${id}`,
+            //            title: `${title}`, 
+            //            company: `${company}`, 
+            //            location: `${location}`, 
+            //            salary: `${salary}`, 
+            //            description: `${description}`, 
+            //            companyWebsite: `${companyWebsite}` 
+            //            }
+            //         ]
+            //     )
+            // } 
+            
+            setAddFavJob(
+                   {
+                   id: `${id}`,
+                   title: `${title}`, 
+                   company: `${company}`, 
+                   location: `${location}`, 
+                   salary: `${salary}`, 
+                   description: `${description}`, 
+                   companyWebsite: `${companyWebsite}` 
+                   }
                 )
-            }  
         }
 
         if(isBookMarked === true){
@@ -40,23 +52,23 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
         }
     }, [isBookMarked])
 
-    useEffect(() => {
-        const removeFromFavorites = () => {
-            const array1 = [];
-            addFavJob.forEach((job) => {
-                array1.push(job.id);
-            })
-          if(array1.includes(id)){
-                setAddFavJob(addFavJob.filter((job) => {
-                    return job.id !== id; 
-                }))
-            }
-        }
+    // useEffect(() => {
+    //     const removeFromFavorites = () => {
+    //         const array1 = [];
+    //         addFavJob.forEach((job) => {
+    //             array1.push(job.id);
+    //         })
+    //       if(array1.includes(id)){
+    //             setAddFavJob(addFavJob.filter((job) => {
+    //                 return job.id !== id; 
+    //             }))
+    //         }
+    //     }
 
-        if(isBookMarked === false){
-            removeFromFavorites();
-        }
-    }, [isBookMarked])
+    //     if(isBookMarked === false){
+    //         removeFromFavorites();
+    //     }
+    // }, [isBookMarked])
 
     const showBookMark = () => {
         if(isBookMarked === false){
