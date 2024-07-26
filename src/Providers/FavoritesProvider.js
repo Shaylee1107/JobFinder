@@ -3,6 +3,20 @@ import { FavoritesContext } from '../Context/FavoritesContext';
 
 const FavoritesProvider = ({ children }) => {
     const [addFavJob, setAddFavJob] = useState(undefined);
+   
+    function checkIfJobIsFavorited(compareID) {
+        const local = JSON.parse(localStorage.favorites);
+        if(local.length === 0){
+            return false;
+        } else {
+            for (let i = 0; i < local.length; i++) {
+                if (local[i].id === compareID) {
+                    return true; 
+                }
+              }
+              return false; 
+        }
+      };
   
     useEffect(() => {
         if(localStorage.favorites === undefined){
@@ -11,23 +25,9 @@ const FavoritesProvider = ({ children }) => {
       }, []);
 
       useEffect(() => {
-        let local = JSON.parse(localStorage.favorites);
-
-        function checkIfJobIsFavorited() {
-            if(local.length === 0){
-                return false;
-            } else {
-                for (let i = 0; i < local.length; i++) {
-                    if (local[i].id === addFavJob.id) {
-                        return true; 
-                    }
-                  }
-                  return false; 
-            }
-          };
-
+          const local = JSON.parse(localStorage.favorites);
           const updateLocalStorage = () => {
-            if(checkIfJobIsFavorited() === true){
+            if(checkIfJobIsFavorited(addFavJob.id) === true){
                 let filterdArray = local.filter((job) => {
                     return job.id !== addFavJob.id;
                 });
@@ -47,7 +47,7 @@ const FavoritesProvider = ({ children }) => {
 
     return (
         <>
-        <FavoritesContext.Provider value={{ addFavJob, setAddFavJob }}>
+        <FavoritesContext.Provider value={{ setAddFavJob, checkIfJobIsFavorited }}>
           {children}
         </FavoritesContext.Provider>
         </>
