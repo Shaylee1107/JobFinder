@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-// import { FavoritesContext } from '../Context/FavoritesContext';
 import JobListing from '../Components/JobListing';
+import './Favorites.css';
 
 const Favorites = () => {
     const [loadFavJobs, setLoadFavJobs] = useState('');
@@ -11,8 +11,7 @@ const Favorites = () => {
       }, []);
 
       const loadJobs = () => {
-        if(loadFavJobs !== ''){
-            console.log(loadFavJobs, 'loadFavJobs')
+        if(loadFavJobs !== '' && loadFavJobs.length !== 0){
             return (loadFavJobs.map((job) => {
                 return (
                 <JobListing 
@@ -27,13 +26,20 @@ const Favorites = () => {
                 />
                 )
             })) 
+       } else {
+        return (
+            <div className="no-favorites-container">
+                <div>
+                    <img src="https://cdn0.iconfinder.com/data/icons/simple-lines-filled-part-1/32/31_Heart_Disabled_Unlike_Hate_Sad_Love-512.png" alt="heart" />
+                </div>
+                <h2> It looks like you don't have any favorites yet... </h2>
+            </div>
+        )
        }
-        
     }
 
     return (
         <div>
-            DA favs
             {loadJobs()}
         </div>
     )
