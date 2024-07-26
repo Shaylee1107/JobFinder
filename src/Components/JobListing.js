@@ -18,7 +18,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
         }
 
         checkingJob();
-    }, [])
+    }, [checkIfJobIsFavorited, id])
 
     useEffect(() => {
         const addToFavorites = () => {
@@ -39,7 +39,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
             addToFavorites();
         }
         
-    }, [isBookMarked])
+    }, [isBookMarked, id, title, company, location, salary, description, companyWebsite, setAddFavJob])
 
     const manageBookMark = () => {
         if(isBookMarked === null){
