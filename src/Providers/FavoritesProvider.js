@@ -13,7 +13,7 @@ const FavoritesProvider = ({ children }) => {
       useEffect(() => {
         let local = JSON.parse(localStorage.favorites);
 
-        function checkIfJobExists() {
+        function checkIfJobIsFavorited() {
             if(local.length === 0){
                 return false;
             } else {
@@ -27,7 +27,7 @@ const FavoritesProvider = ({ children }) => {
           };
 
           const updateLocalStorage = () => {
-            if(checkIfJobExists() === true){
+            if(checkIfJobIsFavorited() === true){
                 let filterdArray = local.filter((job) => {
                     return job.id !== addFavJob.id;
                 });
