@@ -2,9 +2,8 @@ import React from 'react';
 import "./JobListingContainer.css";
 import JobListing from "./JobListing";
 
-
 const JobListingContainer = ({ axiosResults }) => {
-   
+
     const loadJobs = () => {
         return (axiosResults.map((job) => {
                  return (

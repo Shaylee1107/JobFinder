@@ -47,7 +47,7 @@ const FavoritesProvider = ({ children }) => {
 
     return (
         <>
-        <FavoritesContext.Provider value={{ setAddFavJob, checkIfJobIsFavorited }}>
+        <FavoritesContext.Provider value={{ setAddFavJob, checkIfJobIsFavorited, addFavJob }}>
           {children}
         </FavoritesContext.Provider>
         </>

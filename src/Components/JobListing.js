@@ -4,21 +4,37 @@ import './JobListings.css';
 
 const JobListings = ({ title, company, location, salary, description, companyWebsite, id }) => {
     const [isBookMarked, setIsBookMarked] = useState(null);
-    const { setAddFavJob, checkIfJobIsFavorited } = useContext(FavoritesContext);
+    const { setAddFavJob } = useContext(FavoritesContext);
   
     const redirectToCompanyWebsite = () => {
         window.open(companyWebsite, "_blank", "noreferrer");
     }
 
     useEffect(() => {
-        const checkingJob = () => {
-            if(checkIfJobIsFavorited(id) === true){
-                setIsBookMarked('favorited');
-            }
-        }
 
-        checkingJob();
-    }, [checkIfJobIsFavorited, id])
+        function checkIfJobIsFavorited() {
+            const local = JSON.parse(localStorage.favorites);
+            if(local.length !== 0){
+                for (let i = 0; i < local.length; i++) {
+                    if (local[i].id === id) {
+                        setIsBookMarked('favorited'); 
+                    }
+                  }
+            }
+          };
+
+        checkIfJobIsFavorited();
+    }, [id])
+
+    const manageBookMark = () => {
+        if(isBookMarked === null){
+            setIsBookMarked(true); 
+        } else if (isBookMarked === 'favorited'){
+            setIsBookMarked(false);  
+        } else {
+            setIsBookMarked(mark => !mark);
+        }
+    };
 
     useEffect(() => {
         const addToFavorites = () => {
@@ -39,17 +55,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
             addToFavorites();
         }
         
-    }, [isBookMarked, id, title, company, location, salary, description, companyWebsite, setAddFavJob])
-
-    const manageBookMark = () => {
-        if(isBookMarked === null){
-            setIsBookMarked(true);
-        } else if (isBookMarked === 'favorited'){
-            setIsBookMarked(false);
-        } else {
-            setIsBookMarked(mark => !mark);
-        }
-    };
+    }, [isBookMarked, setAddFavJob, companyWebsite, company, id, title, location, salary, description])
 
     const showBookMark = () => {
         if(isBookMarked === false || isBookMarked === null){
