@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import './FilterSearchResultsForm.css';
 import Select from 'react-select';
 
@@ -28,7 +28,8 @@ const sortByOptions = [
   ]
 
 const FilterSearchResultsForm = ({grabFilteredFormData}) => {
-    const INITIAL_STATE = {
+    const INITIAL_STATE = useMemo(() => {
+      return {
         salary: '',
         full_time: '',
         part_time: '',
@@ -36,6 +37,8 @@ const FilterSearchResultsForm = ({grabFilteredFormData}) => {
         contract: '',
         sort_by: ''
     }
+  }, []);
+
     const  [formData, setFormData] =  useState(INITIAL_STATE);
 
 	const handleChange = (evt) => {
@@ -82,7 +85,7 @@ const FilterSearchResultsForm = ({grabFilteredFormData}) => {
         }
 
         handleSubmit();
-    }, [formData])
+    }, [formData, INITIAL_STATE, grabFilteredFormData])
 
 return  (
   <form className="filterContainer">
