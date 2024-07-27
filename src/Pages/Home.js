@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import SearchBar from '../Components/SearchBar';
 import JobListingContainer from '../Components/JobListingContainer';
 import FilterSearchResultsForm from '../Components/FilterSearchResultsForm';
 import axios from 'axios';
 import NextPageArrows from '../Components/NextPageArrows';
+import { LoadingContext } from '../Context/LoadingContext';
 import "./Home.css";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
     const [axiosResults, setAxiosResults] = useState(false);
     const [filteredJobs, setFilteredJobs] = useState(false);
     const [pageNum, setPageNum] = useState(1);
+    const { enableLoading, disableLoading, showLoadingSign } = useContext(LoadingContext);
 
     const BASE_URL = `https://api.adzuna.com/v1/api/jobs/us/search/${pageNum}?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c`;
 
@@ -48,12 +50,14 @@ const Home = () => {
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
+            enableLoading();
             await axios({
                method: "get",
                url: `${BASE_URL}`,
              }).then((response) => {
                setAxiosResults(response.data.results);
              });
+             disableLoading();
         }
 
        sendAxiosRequest();
@@ -61,13 +65,15 @@ const Home = () => {
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
-            scrollToTop();
+            enableLoading();
             await axios({
                method: "get",
                url: `${BASE_URL}`,
              }).then((response) => {
                setAxiosResults(response.data.results);
              });
+             disableLoading();
+             scrollToTop();
         }
 
        sendAxiosRequest();
@@ -76,7 +82,6 @@ const Home = () => {
     useEffect(() => {
         const sendAxiosRequest = async () => {
             if(searchedJobs !== false || filteredJobs !== false){
-                scrollToTop();
                 const params = {
                     what: `${searchedJobs.title || ''}`,
                     title_only: `${searchedJobs.title || ''}`,
@@ -95,6 +100,7 @@ const Home = () => {
                   }
                 }
 
+                enableLoading();
                 await axios({
                     method: "get",
                     url: `${BASE_URL}`,
@@ -103,6 +109,8 @@ const Home = () => {
                     setAxiosResults(response.data.results);
                   }); 
                 } 
+                disableLoading();
+                scrollToTop();
             } 
         
        sendAxiosRequest();
@@ -112,6 +120,7 @@ const Home = () => {
         <div>
             <SearchBar grabFormData={grabFormData}/>
             <FilterSearchResultsForm grabFilteredFormData={grabFilteredFormData}/>
+            {showLoadingSign()}
             {loadJobListingContainer()}
             <NextPageArrows flipPageNum={flipPageNum} pageNum={pageNum}/>
         </div>
