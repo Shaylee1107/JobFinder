@@ -28,7 +28,7 @@ const Favorites = () => {
             })) 
        } else {
         return (
-            <div className="no-favorites-container">
+            <div className="no-favorites-container montserrat">
                 <div>
                     <img src="https://cdn0.iconfinder.com/data/icons/simple-lines-filled-part-1/32/31_Heart_Disabled_Unlike_Hate_Sad_Love-512.png" alt="heart" />
                 </div>
