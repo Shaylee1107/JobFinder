@@ -28,7 +28,7 @@ return  (
       <label className="label montserrat right-label">Location:
   	    <input  className="input" type="text"  name="location" value={formData.location} onChange={handleChange} />
   	  </label>
-      <button>Search</button>
+      <button className='button montserrat'>Search</button>
   </form>
 )
 }

@@ -10,10 +10,11 @@
 .search-bar-form {
     border: 1px solid white; 
     border-radius: 10px;
-    text-align: center;
     margin: 20px; 
-    background-color: hsl(0, 0%, 90%);;
+    background-color: hsl(0, 0%, 90%);
     padding: 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .label {
@@ -36,4 +37,14 @@
     width: 300px;
     margin-left: 10px;
     font-size: 18px;
+}
+
+.button {
+    background-color: hsl(200, 100%, 50%);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: white;
+    width: 80px; 
+    height: 33px;
+    margin-left: 20px;
 }

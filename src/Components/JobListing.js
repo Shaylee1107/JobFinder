@@ -60,7 +60,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
     const showBookMark = () => {
         if(isBookMarked === false || isBookMarked === null){
             return (
-                <div>
+                <div className="bookmark-container">
                   <img 
                     src="https://static-00.iconduck.com/assets.00/bookmark-icon-1803x2048-3d3yni5w.png" 
                     className="bookmark-icon" 
@@ -71,7 +71,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
             )
         } else {
             return (
-                <div>
+                <div className="bookmark-container">
                   <img 
                     src="https://static-00.iconduck.com/assets.00/bookmark-icon-1567x2048-gqmwqm5z.png" 
                     className="blue-bookmark-icon" 
@@ -85,15 +85,17 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
 
     return (
         <div className="JobListContainer">
-            <h3>{title}</h3>
-            {
-                showBookMark()
-            }
-            <p>{company}</p>
-            <p>{location}</p>
-            <p>${salary}</p>
-            <p>{description}</p>
-            <button onClick={() => redirectToCompanyWebsite()}>Apply Now</button>
+            <div className="job-info">
+              <div className="title-bookmark">
+                <h3 className='montserrat job-title'>{title}</h3>
+                {showBookMark()}
+              </div>
+              <p className="dm-sans">{company}</p>
+              <p className="dm-sans">{location}</p>
+              <p className="dm-sans">${salary}</p>
+              <p className="dm-sans">{description}</p>
+              <button className="details-button montserrat" onClick={() => redirectToCompanyWebsite()}>More Details</button>
+            </div>
         </div>
     )
 }
