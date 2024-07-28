@@ -4,7 +4,7 @@ import './NextPageArrows.css';
 
 const NextPageArrows = ({flipPageNum, pageNum}) => {
     return (
-        <div>
+        <div className="next-page-container">
             <div className="arrow-container">
               <img 
                 src="https://www.iconpacks.net/icons/2/free-arrow-left-icon-3099-thumb.png" 

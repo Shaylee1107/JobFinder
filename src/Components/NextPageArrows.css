@@ -1,7 +1,7 @@
 .left-arrow {
     width: 30px; 
     position: absolute;
-    left: 0; 
+    left: 10px; 
 }
 
 .right-arrow {
@@ -9,7 +9,7 @@
     position: absolute;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-    right: 0;
+    right: 10px;
 }
 
 .left-arrow-container {
@@ -33,7 +33,12 @@
 .pageNum {
     position: absolute;
     left: 50%;
-    background-color: grey;
+    background-color: hsl(200, 100%, 50%);
     padding: 5px 10px; 
     color: white; 
+}
+
+.next-page-container {
+    background-color: hsl(0, 0%, 90%);
+    height: 30px;
 }
