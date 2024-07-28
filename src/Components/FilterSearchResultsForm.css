@@ -1,33 +1,12 @@
 .filterContainer {
-    border: 1px solid purple; 
+   text-align: center;
 }
 
 .dropDownOptions {
     width: 150px; 
    display: inline-block;
+   padding: 0 5px; 
 }
 
-/* .index{
-    
-    z-index: 99999;
-    background-color: grey;
-    width: 100%; 
-    text-align: center;
-    justify-self: center;
-} */
 
-/* .center {
-  position: absolute;
-  left: 50%;
-  margin-left: -50px;
-  top: 50%;
-  margin-top: -50px;
-} */
-
-/* .inline {
-    display: inline;
-    position: relative;
-    text-align: center;
-    justify-content: center;
-} */
 
