@@ -1,5 +1,7 @@
 .JobListContainer {
     border: 1px solid blue; 
+    background-color: white;
+    margin: 0 150px; 
 }
 
 .bookmark-icon {

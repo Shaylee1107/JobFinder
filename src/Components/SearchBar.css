@@ -1,3 +1,39 @@
-.Formcontainer {
-    border: 1px solid black; 
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap');
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.search-bar-form {
+    border: 1px solid white; 
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px; 
+    background-color: hsl(0, 0%, 90%);;
+    padding: 5px;
+}
+
+.label {
+    color: hsl(200, 100%, 40%);
+    font-size: 18px;
+}
+
+.right-label {
+    padding-left: 30px; 
+}
+
+.left-label {
+    padding-right: 30px; 
+}
+
+.input {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    height: 30px; 
+    width: 300px;
+    margin-left: 10px;
+    font-size: 18px;
 }

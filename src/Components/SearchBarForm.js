@@ -21,12 +21,12 @@ const SearchBarForm = ({grabFormData}) => {
     }
 
 return  (
-  <form onSubmit={handleSubmit}>
-  	  <label>Job Title:
-  	    <input  type="text"  name="title" value={formData.title} onChange={handleChange} />
+  <form className="search-bar-form" onSubmit={handleSubmit}>
+  	  <label className="label montserrat left-label">Job Title:
+  	    <input  className="input" type="text"  name="title" value={formData.title} onChange={handleChange} />
   	  </label>
-        <label>Location:
-  	    <input  type="text"  name="location" value={formData.location} onChange={handleChange} />
+      <label className="label montserrat right-label">Location:
+  	    <input  className="input" type="text"  name="location" value={formData.location} onChange={handleChange} />
   	  </label>
       <button>Search</button>
   </form>
