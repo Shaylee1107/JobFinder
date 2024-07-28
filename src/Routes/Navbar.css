@@ -20,6 +20,7 @@
 .flex{
     display:flex;
     text-align: center;
+    background-color: hsl(0, 0%, 90%);
 }
 
 .nabar-items {
@@ -28,7 +29,7 @@
 }
 
 .img {
-    width: 100px; 
+    width: 70px; 
 }
 
 .links {
