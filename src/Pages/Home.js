@@ -50,38 +50,23 @@ const Home = () => {
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
-            enableLoading();
-            await axios({
-               method: "get",
-               url: `${BASE_URL}`,
-             }).then((response) => {
-               setAxiosResults(response.data.results);
-             });
-             disableLoading();
+            if(searchedJobs === false || filteredJobs === false){
+              enableLoading();
+              await axios({
+                 method: "get",
+                 url: `https://api.adzuna.com/v1/api/jobs/us/search/${pageNum}?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c`,
+               }).then((response) => {
+                 setAxiosResults(response.data.results);
+               });
+               disableLoading();
+            }
         }
 
        sendAxiosRequest();
-    }, [BASE_URL])
+    }, [])
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
-            enableLoading();
-            await axios({
-               method: "get",
-               url: `${BASE_URL}`,
-             }).then((response) => {
-               setAxiosResults(response.data.results);
-             });
-             disableLoading();
-             scrollToTop();
-        }
-
-       sendAxiosRequest();
-    }, [pageNum, BASE_URL])
-
-    useEffect(() => {
-        const sendAxiosRequest = async () => {
-            if(searchedJobs !== false || filteredJobs !== false){
                 const params = {
                     what: `${searchedJobs.title || ''}`,
                     title_only: `${searchedJobs.title || ''}`,
@@ -108,13 +93,13 @@ const Home = () => {
                   }).then(function (response) {
                     setAxiosResults(response.data.results);
                   }); 
-                } 
+                
                 disableLoading();
                 scrollToTop();
             } 
         
        sendAxiosRequest();
-    }, [searchedJobs, filteredJobs, pageNum, BASE_URL])
+    }, [searchedJobs, filteredJobs, BASE_URL, pageNum])
 
     return (
         <div>
