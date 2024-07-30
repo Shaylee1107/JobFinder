@@ -23,7 +23,6 @@ const Home = () => {
 
     const grabFilteredFormData = useCallback((filterdFormData) => {
         setPageNum(1);
-        console.log(filterdFormData, 'filtered Form Data')
         setFilteredJobs(filterdFormData);
     }, []);
 
@@ -93,6 +92,7 @@ const Home = () => {
                     url: `${BASE_URL}`,
                     params
                   }).then(function (response) {
+                    console.log(response.data.results, 'axios results')
                     setAxiosResults(response.data.results);
                   }); 
                 
