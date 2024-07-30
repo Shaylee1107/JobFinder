@@ -1,9 +1,9 @@
 import React from 'react';
 import './NextPageArrows.css';
 
-
 const NextPageArrows = ({flipPageNum, pageNum}) => {
     return (
+      <div className="next-arrows-main-container">
         <div className="next-page-container">
             <div className="arrow-container">
               <img 
@@ -25,6 +25,7 @@ const NextPageArrows = ({flipPageNum, pageNum}) => {
               />
             </div>
         </div>
+      </div>
     )
 };
 

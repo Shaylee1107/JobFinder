@@ -46,3 +46,9 @@
     align-items: flex-end;
     justify-content: center;
 }
+
+.next-arrows-main-container{
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
