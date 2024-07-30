@@ -1,7 +1,6 @@
 @import url("https://use.fontawesome.com/releases/v5.3.1/css/all.css");
 
 .loading {
-    width: 100px;
     height: 100px; 
     color:  hsl(200, 100%, 40%);
     position: absolute;
@@ -12,5 +11,7 @@
     margin-left: -50px;
     text-align: center;
   }
+
+
 
  

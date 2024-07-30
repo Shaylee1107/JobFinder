@@ -30,7 +30,7 @@ const JobListingContainer = ({ axiosResults }) => {
     }
 
     return (
-        <div className="container">
+        <div className="job-container">
           {loadJobs()}
         </div>
     )

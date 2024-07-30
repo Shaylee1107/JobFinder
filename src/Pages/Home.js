@@ -51,6 +51,7 @@ const Home = () => {
     useEffect(() => {
         const sendAxiosRequest = async () => {
             if(searchedJobs === false && filteredJobs === false){
+              scrollToTop();
               enableLoading();
               await axios({
                  method: "get",
@@ -86,6 +87,7 @@ const Home = () => {
                   }
                 }
 
+                scrollToTop();
                 enableLoading();
                 await axios({
                     method: "get",
@@ -97,7 +99,6 @@ const Home = () => {
                   }); 
                 
                 disableLoading();
-                scrollToTop();
             } 
         
        sendAxiosRequest();
