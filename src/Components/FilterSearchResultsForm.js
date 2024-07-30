@@ -25,6 +25,7 @@ const sortByOptions = [
   const jobTypeOptions = [
     { name: 'permanent', value: '1', label: 'Permanent' },
     { name: 'contract', value: '1', label: 'Contract' },
+    { name: 'default', value: '', label: 'Default' },
   ]
 
 const FilterSearchResultsForm = ({grabFilteredFormData}) => {
@@ -35,7 +36,8 @@ const FilterSearchResultsForm = ({grabFilteredFormData}) => {
         part_time: '',
         permanent: '',
         contract: '',
-        sort_by: ''
+        sort_by: '',
+        default: '',
     }
   }, []);
 
@@ -68,6 +70,13 @@ const FilterSearchResultsForm = ({grabFilteredFormData}) => {
           ...formData, 
           [evt.name]: value, 
           permanent: ''
+        })
+      } else if(name === 'default'){
+        setFormData({
+          ...formData, 
+          [evt.name]: value, 
+          permanent: '',
+          contract: ''
         })
       } else {
         setFormData({

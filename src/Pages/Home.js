@@ -23,6 +23,7 @@ const Home = () => {
 
     const grabFilteredFormData = useCallback((filterdFormData) => {
         setPageNum(1);
+        console.log(filterdFormData, 'filtered Form Data')
         setFilteredJobs(filterdFormData);
     }, []);
 
@@ -76,7 +77,8 @@ const Home = () => {
                     full_time: `${filteredJobs.full_time || ''}`,
                     part_time: `${filteredJobs.part_time || ''}`,
                     permanent: `${filteredJobs.permanent || ''}`,
-                    contract: `${filteredJobs.contract || ''}`
+                    contract: `${filteredJobs.contract || ''}`,
+                    default: `${filteredJobs.default || ''}`
                 };
 
                 for (const key of Object.keys(params)) {
