@@ -3,7 +3,7 @@
 .loading {
     width: 100px;
     height: 100px; 
-    color: blue;
+    color:  hsl(200, 100%, 40%);
     position: absolute;
     z-index: 10000;
     top: 50%;
@@ -12,3 +12,5 @@
     margin-left: -50px;
     text-align: center;
   }
+
+ 

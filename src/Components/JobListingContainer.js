@@ -1,5 +1,4 @@
 import React from 'react';
-import "./JobListingContainer.css";
 import JobListing from "./JobListing";
 
 const JobListingContainer = ({ axiosResults }) => {

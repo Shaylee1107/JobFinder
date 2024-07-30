@@ -5,6 +5,7 @@ import LoadingIcon from '../Components/LoadingIcon';
 const LoadingProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
 
+
     const enableLoading = useCallback(() =>
     {
       setIsLoading(true);

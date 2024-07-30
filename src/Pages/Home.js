@@ -50,7 +50,7 @@ const Home = () => {
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
-            if(searchedJobs === false || filteredJobs === false){
+            if(searchedJobs === false && filteredJobs === false){
               enableLoading();
               await axios({
                  method: "get",
@@ -63,7 +63,7 @@ const Home = () => {
         }
 
        sendAxiosRequest();
-    }, [])
+    }, [pageNum])
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
@@ -99,7 +99,7 @@ const Home = () => {
             } 
         
        sendAxiosRequest();
-    }, [searchedJobs, filteredJobs, BASE_URL, pageNum])
+    }, [searchedJobs, filteredJobs, BASE_URL])
 
     return (
         <div>
