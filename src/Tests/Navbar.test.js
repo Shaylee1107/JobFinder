@@ -1,5 +1,4 @@
 import {render, fireEvent, screen} from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import Navbar from '../Routes/Navbar';
 import { MemoryRouter } from 'react-router-dom';
