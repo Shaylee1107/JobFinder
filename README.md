@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+<h1>Job Finder</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ````diff
+@@ Link --> shaylee1107.github.io/JobSearch @@
+````
 
-## Available Scripts
+<h2>Description:</h2>
+<p>Job Finder is a website programmed with JavaScript and React.js for job seekers to search, veiw, and apply for jobs--provided by the Adunza API--and add them to their favorites tab, managed by local storage.</p>
 
-In the project directory, you can run:
+<h2>Features:</h2>
+<ul>
+  <li>Navbar: gives users easy access to the home and favorites page.</li>
+  <li>Search Bar: finds jobs related to the title and location specified.</li>
+  <li>Filter Search: narrows down the search even more based on either a salary minimum, full/part time hours, sorting order, or an employment type.</li>
+  <li>Favorites: users may favorite a job by clicking the bookmark icon and veiw/manage all their favorite jobs.</li>
+  <li>Page Navigation Arrows: provides the users access to mulitple pages of job results. </li>
+</ul>
 
-### `npm start`
+<h2>Testing:</h2>
+<p>My tests are located in a folder in the src directory called "Tests". You may run them in the terminal by using the command "npm run test".</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>User Flow:</h2>
+<p>When first opening the Job Finder website, the Adunza API fetches and displays the data of random jobs anywhere in the US. The navbar allows navigation between the home page by clicking the "Job Finder" title or location marker icon, and the favorites tab by clicking the text "Favorites". If the user clicks on the favorites tab and has not favorited any jobs, an image of a heart with a line through it appears along with text saying there are no favorites to show.</p>
+<p>On the homepage, the user may interact with any individual or a mix of the search features. The two main search features are by typing the job title and a specific location, which the user must hit the "search" button to submit. There are also filtering search drop-down options to narrow the search by a salary minimum, full/part time hours, sort by categories, or an employment type. These filtering options are applied to the search immediately after selecting any option.</p>
+<p>Each job displays information such as: job title, company, location, salary, and descripton. Each job also has a "More Details" button that opens the Adunza website on a new tab for the user to veiw more info about that specific job, and may also apply. The next page arrows provide a left and right navigation between the search results, and what page they are currently on. If there are no jobs to show or no more search results, an image of a man checking a file with spider webs is displayed along with an apology that there are no results. </p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2>Adunza API</h2>
 
-### `npm test`
+  ````diff
+@@ Link --> https://developer.adzuna.com/ @@
+````
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p>The Adunza API allows access to information about jobs available all over the globe, including outside of the US, like New England. This API also has lots of other great filtering options to optimize great search narrowing. But the Adunza API does not provide any further specific information about a job other than the job title, location, company, salary, and some of the job description--like a company logo or further info like the job requirments. Although, it does allow access to info about employment data over how salary data has changed over time, and other metrics. </p>
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
