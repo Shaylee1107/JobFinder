@@ -64,7 +64,7 @@ const Home = () => {
         }
 
        sendAxiosRequest();
-    }, [pageNum])
+    }, [pageNum, enableLoading, disableLoading, searchedJobs, filteredJobs])
 
     useEffect(() => {
         const sendAxiosRequest = async () => {
