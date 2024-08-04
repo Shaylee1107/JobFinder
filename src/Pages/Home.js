@@ -94,7 +94,6 @@ const Home = () => {
                     url: `${BASE_URL}`,
                     params
                   }).then(function (response) {
-                    console.log(response.data.results, 'axios results')
                     setAxiosResults(response.data.results);
                   }); 
                 
