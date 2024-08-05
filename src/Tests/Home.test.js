@@ -1,10 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup, } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Home from '../Pages/Home.js';
 import LoadingProvider from '../Providers/LoadingProvider.js';
 import { waitFor } from '@testing-library/react';
 import FavoritesProvider from '../Providers/FavoritesProvider.js';
+
+afterEach(cleanup);
 
 jest.mock("axios", () => {
     const expectedResponse = JSON.stringify({
@@ -53,17 +55,24 @@ test('if Home renders Search Bar and Filter Search Options', async () => {
    
 });
 
-// test('if an API request goes through after clicking search', async () => {
-//     const { getByText } = render( 
-//     <LoadingProvider>
-//         <FavoritesProvider>
-//          <Home />
-//         </FavoritesProvider>
-//     </LoadingProvider>
-//     );
+test('if an API request goes through after clicking search', async () => {
+    const { getAllByTestId } = render( 
+    <LoadingProvider>
+        <FavoritesProvider>
+         <Home />
+        </FavoritesProvider>
+    </LoadingProvider>
+    );
 
+
+
+    // const firstRender = asFragment();
+
+    // fireEvent.click(getByText("Search"));
+
+    // await waitFor(() => expect(getByText('Software Engineering Manager')).toBeInTheDocument());
    
-// });
+});
 
 
 
