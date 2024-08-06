@@ -23,6 +23,7 @@ const Favorites = () => {
                    companyWebsite={`${job.companyWebsite}`}
                    key={`${job.id}`}
                    id={`${job.id}`}
+                   favorite="true"
                 />
                 )
             })) 

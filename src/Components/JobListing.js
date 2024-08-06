@@ -2,10 +2,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import { FavoritesContext } from '../Context/FavoritesContext';
 import './JobListings.css';
 
-const JobListings = ({ title, company, location, salary, description, companyWebsite, id }) => {
+const JobListings = ({ title, company, location, salary, description, companyWebsite, id, favorite }) => {
     const [isBookMarked, setIsBookMarked] = useState(null);
     const { setAddFavJob } = useContext(FavoritesContext);
-  
     const redirectToCompanyWebsite = () => {
         window.open(companyWebsite, "_blank", "noreferrer");
     }
@@ -59,6 +58,13 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
 
     const showBookMark = () => {
         if(isBookMarked === false || isBookMarked === null){
+            if(favorite !== undefined){
+                return (
+                    <div onClick={() => manageBookMark()} className="bookmark-container undo-button">
+                        Undo
+                    </div>
+                )
+            }
             return (
                 <div className="bookmark-container">
                   <img 
@@ -83,20 +89,38 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
         }
     }
 
-    return (
-        <div className="JobListContainer">
-            <div className="job-info">
-              <div className="title-bookmark">
-                <h3 className='montserrat job-title'>{title}</h3>
-                {showBookMark()}
-              </div>
-              <p className="dm-sans">{company}</p>
-              <p className="dm-sans">{location}</p>
-              <p className="dm-sans">${salary}</p>
-              <p className="dm-sans">{description}</p>
-              <button className="details-button montserrat" onClick={() => redirectToCompanyWebsite()}>More Details</button>
+    const showJob = () => {
+        if(favorite !== undefined && isBookMarked === false){
+            return (
+                <div className="JobListContainer center-removed-job">
+                      <div className="title-bookmark center-removed-job-details">
+                        <h3 className='montserrat job-title removed-job-title'>{title} <span className="removed-message">has been removed...</span></h3>
+                        {showBookMark()}
+                      </div>
+                </div>
+            )
+        }
+        return (
+            <div className="JobListContainer">
+                <div className="job-info">
+                  <div className="title-bookmark">
+                    <h3 className='montserrat job-title'>{title}</h3>
+                    {showBookMark()}
+                  </div>
+                  <p className="dm-sans">{company}</p>
+                  <p className="dm-sans">{location}</p>
+                  <p className="dm-sans">${salary}</p>
+                  <p className="dm-sans">{description}</p>
+                  <button className="details-button montserrat" onClick={() => redirectToCompanyWebsite()}>More Details</button>
+                </div>
             </div>
-        </div>
+        )
+    }
+
+    return (
+        <>
+            {showJob()}
+        </>
     )
 }
 
