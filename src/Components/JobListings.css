@@ -53,4 +53,8 @@
     height: 33px;
 }
 
+.details-button:hover {
+    background-color: hsl(200, 100%, 40%);
+}
+
 
