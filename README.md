@@ -4,6 +4,9 @@
 @@ shaylee1107.github.io/JobSearch @@
 ````
 
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/5dcc0d38-0dd4-4158-bb5c-93339c296a51">
+
+
 <h2>Description:</h2>
 <p>Job Finder is a website programmed with JavaScript and React.js for job seekers to search, veiw, and apply for jobs provided by the Adunza API. Users can also add jobs to their favorites tab, which is managed by local storage.</p>
 
@@ -17,7 +20,7 @@
 </ul>
 
 <h2>Testing:</h2>
-<p>My tests are located in a folder in the src directory called "Tests". You may run them in the terminal by using the command "npm run test".</p>
+<p>You may run the tests in the terminal by using the command "npm run test".</p>
 
 <h2>User Flow:</h2>
 <p>When first opening the Job Finder website, the Adunza API fetches and displays the data of random jobs anywhere in the US. The navbar allows navigation between the home page by clicking the "Job Finder" text or location marker icon, and the favorites tab by clicking the text "Favorites". On the homepage, the user may click the white bookmark icon besides any of the job's title to add that job to their favorites, making the bookmark icon go from white to blue. In the favorites tab, the user may click the blue bookmark icon to remove the job from their favorites. After unfavoriting a job, that job will show the job title along with "has been removed..." beside it, and blue clickable text that says "Undo". Clicking the "Undo" text will re-favorite the job and make it show all the job details again with a blue bookmark icon. If the user clicks on the favorites tab and has not favorited any jobs, an image of a heart with a line through it appears along with text saying there are no favorites to show.</p>
