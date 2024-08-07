@@ -48,7 +48,7 @@
 </ol>
 
 <h2>Testing:</h2>
-<p>You may run the tests in the terminal by using the command "npm run test".</p>
+<p>You may run the tests in the terminal by using the command "npm run test". If prompted with options on how to run the tests, press "a" to run all the tests at once.</p>
 
 
 
