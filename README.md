@@ -19,9 +19,6 @@
   <li>Page Navigation Arrows: provides the users access to mulitple pages of job results. </li>
 </ul>
 
-<h2>Testing:</h2>
-<p>You may run the tests in the terminal by using the command "npm run test".</p>
-
 <h2>User Flow:</h2>
 <p>When first opening the Job Finder website, the Adunza API fetches and displays the data of random jobs anywhere in the US. The navbar allows navigation between the home page by clicking the "Job Finder" text or location marker icon, and the favorites tab by clicking the text "Favorites". On the homepage, the user may click the white bookmark icon besides any of the job's title to add that job to their favorites, making the bookmark icon go from white to blue. In the favorites tab, the user may click the blue bookmark icon to remove the job from their favorites. After unfavoriting a job, that job will show the job title along with "has been removed..." beside it, and blue clickable text that says "Undo". Clicking the "Undo" text will re-favorite the job and make it show all the job details again with a blue bookmark icon. If the user clicks on the favorites tab and has not favorited any jobs, an image of a heart with a line through it appears along with text saying there are no favorites to show.</p>
 <p>On the homepage, the user may interact with any individual or a mix of the search features. The two main search features are by typing the job title and a specific location, which the user must hit the "search" button to submit. There are also filtering search drop-down options to narrow the search by a salary minimum, full/part time hours, sort by categories, or an employment type. These filtering options are applied to the search immediately after selecting any option.</p>
@@ -35,6 +32,20 @@
 
 <p>The Adunza API allows access to information about jobs available all over the globe, including outside of the US, like New England. This API also has lots of other great filtering options to optimize great search narrowing. But the Adunza API does NOT provide an image of the company logo or further info like the job requirments. Although, it does allow access to info about employment data over how salary data has changed over time, and other metrics about the overall job market. </p>
 
+<h2>Cloning and Running this Project</h2>
+<ol>
+  <li>In the JobSearch repository, press the green "< > Code" button.</li>
+  <li>From the options, at the bottom press "Download ZIP".</li>
+  <li>Go to your downloads folder on your computer/machine.</li>
+  <li>Find and press the "JobSearch-main.zip".</li>
+  <li>A folder called "JobSearch-main" will be created in your downloads. Move this folder somewhere outside of your downloads.</li>
+  <li>In your terminal, cd into the "JobSearch-main" folder.</li>
+  <li>Run the command "npm install".</li>
+  <li>Next, run the command "npm start" to run the project in your local browser.</li>
+</ol>
+
+<h2>Testing:</h2>
+<p>You may run the tests in the terminal by using the command "npm run test".</p>
 
 
 
