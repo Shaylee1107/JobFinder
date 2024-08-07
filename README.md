@@ -40,8 +40,11 @@
   <li>Find and press the "JobSearch-main.zip".</li>
   <li>A folder called "JobSearch-main" will be created in your downloads. Move this folder somewhere outside of your downloads.</li>
   <li>In your terminal, cd into the "JobSearch-main" folder.</li>
+  <li>Run the command "git init".</li>
+  <li>Run the command "git add ."</li>
+  <li>Run the command "git commit -m 'adding files'" </li>
   <li>Run the command "npm install".</li>
-  <li>Next, run the command "npm start" to run the project in your local browser.</li>
+  <li>Finally, run the command "npm start" to run the project in your local browser.</li>
 </ol>
 
 <h2>Testing:</h2>
