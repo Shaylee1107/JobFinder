@@ -60,8 +60,9 @@
 .undo-button {
     font-weight: bold;
     color: hsl(200, 100%, 50%);
-    font-size: 25px;
+    font-size: 20px;
     padding-top: 10px;
+    padding-right: 20px; 
 }
 
 .undo-button:hover {
@@ -69,7 +70,7 @@
 }
 
 .removed-job-title {
-    font-size: 23px;
+    font-size: 20px;
     margin-bottom: 0; 
     padding: 10px; 
 }

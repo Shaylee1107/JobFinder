@@ -2,7 +2,7 @@
 
 .loading {
     height: 100px; 
-    color:  hsl(200, 100%, 40%);
+    color:  hsl(200, 100%, 20%);
     position: absolute;
     z-index: 10000;
     top: 50%;

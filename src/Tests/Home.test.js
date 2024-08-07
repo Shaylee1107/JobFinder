@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Home from '../Pages/Home.js';
 import LoadingProvider from '../Providers/LoadingProvider.js';
@@ -37,6 +37,7 @@ jest.mock("axios", () => {
             ]
       }
   });
+  
   return () => new Promise(() => expectedResponse);
 })
 
@@ -68,7 +69,7 @@ test('if home has jobs rendered upon opening the website', async () => {
       </FavoritesProvider>
   </LoadingProvider>
   );
- 
+  screen.debug();
   await waitFor(() => expect(getByText('Software Engineering Manager')).toBeInTheDocument());
 });
 

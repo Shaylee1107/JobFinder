@@ -101,7 +101,7 @@ const Home = () => {
             } 
         
        sendAxiosRequest();
-    }, [searchedJobs, filteredJobs, BASE_URL])
+    }, [searchedJobs, filteredJobs, BASE_URL, enableLoading, disableLoading])
 
     return (
         <div>
