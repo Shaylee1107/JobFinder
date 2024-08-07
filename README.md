@@ -38,7 +38,7 @@
   <li>From the options, at the bottom press "Download ZIP".</li>
   <li>Go to your downloads folder on your computer/machine.</li>
   <li>Find and press the "JobSearch-main.zip".</li>
-  <li>A folder called "JobSearch-main" will be created in your downloads. Move this folder somewhere outside of your downloads.</li>
+  <li>A folder called "JobSearch-main" will be created in your downloads. Move this folder somewhere outside of your downloads, for example, in "Documents".</li>
   <li>In your terminal, cd into the "JobSearch-main" folder.</li>
   <li>Run the command "git init".</li>
   <li>Run the command "git add ."</li>
