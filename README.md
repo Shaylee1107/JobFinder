@@ -1,7 +1,7 @@
 <h1>Job Finder</h1>
 
   ````diff
-@@ shaylee1107.github.io/JobSearch @@
+@@ shaylee1107.github.io/JobFinder/ @@
 ````
 
 <img width="1440" alt="image" src="https://github.com/user-attachments/assets/5dcc0d38-0dd4-4158-bb5c-93339c296a51">
