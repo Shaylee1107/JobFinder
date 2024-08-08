@@ -4,7 +4,8 @@
 @@ shaylee1107.github.io/JobFinder/ @@
 ````
 
-<img width="1440" alt="image" src="https://github.com/user-attachments/assets/5dcc0d38-0dd4-4158-bb5c-93339c296a51">
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/f00caa92-3218-4131-9858-10b58ab3ac9c">
+
 
 
 <h2>Description:</h2>
