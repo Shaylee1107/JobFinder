@@ -5,9 +5,9 @@ import Home from '../Pages/Home.js';
 import LoadingProvider from '../Providers/LoadingProvider.js';
 import { waitFor } from '@testing-library/react';
 import FavoritesProvider from '../Providers/FavoritesProvider.js';
-import { server } from '../mocks/browser.js'
+// import { server } from '../mocks/browser.js'
  
-server.listen()
+// server.listen()
 
 window.scrollTo = jest.fn();
 beforeEach(() => {
