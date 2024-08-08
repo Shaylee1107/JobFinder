@@ -1,5 +1,5 @@
 {
-  "homepage": "http://Shaylee1107.github.io/JobSearch",
+  "homepage": "http://Shaylee1107.github.io/JobFinder",
   "name": "job-finder",
   "version": "0.1.0",
   "private": true,
@@ -51,6 +51,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.0",
     "gh-pages": "^6.1.1",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "msw": "^2.3.5"
   }
 }
