@@ -38,9 +38,9 @@
   <li>In the JobSearch repository, press the green "< > Code" button.</li>
   <li>From the options, at the bottom press "Download ZIP".</li>
   <li>Go to your downloads folder on your computer/machine.</li>
-  <li>Find and press the "JobSearch-main.zip".</li>
-  <li>A folder called "JobSearch-main" will be created in your downloads. Move this folder somewhere outside of your downloads, for example, in "Documents".</li>
-  <li>In your terminal, cd into the "JobSearch-main" folder.</li>
+  <li>Find and press the "JobFinder-main.zip".</li>
+  <li>A folder called "JobFinder-main" will be created in your downloads. Move this folder somewhere outside of your downloads, for example, in "Documents".</li>
+  <li>In your terminal, cd into the "JobFinder-main" folder.</li>
   <li>Run the command "git init".</li>
   <li>Run the command "npm install".</li>
   <li>Run the command "git add ."</li>
