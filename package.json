@@ -18,6 +18,7 @@
     "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.8.0",
+    "undici": "^6.19.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -53,5 +54,10 @@
     "gh-pages": "^6.1.1",
     "jest": "^27.5.1",
     "msw": "^2.3.5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
