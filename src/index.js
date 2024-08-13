@@ -17,7 +17,6 @@ async function enableMocking() {
   return worker.start()
 }
  
-enableMocking().then(() => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <React.StrictMode>
@@ -32,7 +31,7 @@ enableMocking().then(() => {
       </mockServiceWorker>
     </React.StrictMode>
   );
-})
+
 
   
 
