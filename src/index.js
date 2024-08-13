@@ -7,12 +7,26 @@ import {HashRouter} from "react-router-dom";
 import FavoritesProvider from './Providers/FavoritesProvider';
 import LoadingProvider from './Providers/LoadingProvider';
 
-async function enableMocking() {
-
-  const { worker } = await import('./mocks/browser.js')
- 
-  return worker.start();
+// async function enableMocking() {
+//   if (process.env.NODE_ENV === "development") {
+//     const { worker } = await import('./mocks/browser.js')
+//     return worker.start();
+//   }
+// }
+async function enableMocking(){
+  if (
+    process.env.REACT_APP_MSW_MOKING === 'true' &&
+    process.env.NODE_ENV === 'development'
+  ) {
+    const { worker } = await import('./mocks/browser.js')
+    worker.start({
+      serviceWorker: {
+        url: '/public/mockServiceWorker.js',
+      },
+    });
+  }
 }
+
  
 enableMocking().then(() => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
