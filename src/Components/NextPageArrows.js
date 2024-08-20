@@ -1,5 +1,6 @@
 import React from 'react';
 import './NextPageArrows.css';
+import arrow from '../images/arrow.png';
 
 const NextPageArrows = ({flipPageNum, pageNum}) => {
     return (
@@ -7,7 +8,7 @@ const NextPageArrows = ({flipPageNum, pageNum}) => {
         <div className="next-page-container">
             <div className="arrow-container">
               <img 
-                src="https://www.iconpacks.net/icons/2/free-arrow-left-icon-3099-thumb.png" 
+                src={arrow}
                 alt="left arrow" 
                 className="left-arrow" 
                 onClick={() => flipPageNum('left')}
@@ -18,7 +19,7 @@ const NextPageArrows = ({flipPageNum, pageNum}) => {
             </div>
             <div className="arrow-container">
               <img 
-                src="https://www.iconpacks.net/icons/2/free-arrow-left-icon-3099-thumb.png" 
+                src={arrow}
                 alt="right arrow" 
                 className="right-arrow" 
                 onClick={() => flipPageNum('right')}

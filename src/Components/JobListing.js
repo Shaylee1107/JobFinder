@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { FavoritesContext } from '../Context/FavoritesContext';
 import './JobListings.css';
+import blueBookmark from '../images/blue_bookmark.png';
+import bookmark from '../images/bookmark.png';
 
 const JobListings = ({ title, company, location, salary, description, companyWebsite, id, favorite }) => {
     const [isBookMarked, setIsBookMarked] = useState(null);
@@ -68,7 +70,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
             return (
                 <div className="bookmark-container">
                   <img 
-                    src="https://static-00.iconduck.com/assets.00/bookmark-icon-1803x2048-3d3yni5w.png" 
+                    src={bookmark}
                     className="bookmark-icon" 
                     onClick={() => manageBookMark()}
                     alt="bookmark icon" 
@@ -79,7 +81,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
             return (
                 <div className="bookmark-container">
                   <img 
-                    src="https://static-00.iconduck.com/assets.00/bookmark-icon-1567x2048-gqmwqm5z.png" 
+                    src={blueBookmark}
                     className="blue-bookmark-icon" 
                     onClick={() => manageBookMark()}
                     alt="bookmark icon" 

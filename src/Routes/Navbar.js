@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
+import locationMarker from "../images/location_marker.png";
 
 const Navbar = () => {
     return (
@@ -8,7 +9,7 @@ const Navbar = () => {
             <div>
               <Link to="/"><img 
                 className='img nabar-items' 
-                src="https://cdn1.iconfinder.com/data/icons/flat-design-basic-set-7/24/location-map-where-global-positioning-system-512.png" 
+                src={locationMarker} 
                 alt="location icon"
               />
               </Link>
@@ -20,3 +21,5 @@ const Navbar = () => {
 }
 
 export default Navbar; 
+
+// src="https://cdn1.iconfinder.com/data/icons/flat-design-basic-set-7/24/location-map-where-global-positioning-system-512.png" 
