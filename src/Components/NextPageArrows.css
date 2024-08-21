@@ -1,0 +1,54 @@
+.left-arrow {
+    display: flex; 
+    width: 30px; 
+    left: 10px; 
+    align-self: center;
+    padding-right: 30px;
+}
+
+.right-arrow {
+    padding-right: 30px; 
+    display: flex;
+    width: 30px; 
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    right: 10px;
+    align-self: center;
+}
+
+.left-arrow-container {
+    background-color: grey;
+    width: 40px;
+    height: 40px; 
+    text-align: center;
+    align-content: center;
+}
+
+.right-arrow-container {
+    background-color: grey;
+    width: 40px;
+    height: 40px; 
+    text-align: center;
+    align-content: center;
+}
+
+.pageNum {
+    display: flex;
+    background-color: hsl(200, 100%, 50%);
+    padding: 5px 10px; 
+    color: white; 
+}
+
+.next-page-container {
+    background-color: hsl(0, 0%, 90%);
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.next-arrows-main-container{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

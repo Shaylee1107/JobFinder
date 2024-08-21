@@ -1,0 +1,18 @@
+.filterContainer {
+   text-align: center;
+}
+
+.dropDownOptions {
+   width: 150px; 
+   display: inline-block;
+   padding: 0 5px; 
+}
+
+.remove {
+   display: inline-block;
+}
+
+
+
+
+

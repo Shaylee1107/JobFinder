@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap');
+
+.dm-sans {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: hsl(0, 0%, 35%);
+  }
+
+.JobListContainer {
+    border: 3px solid hsl(0, 0%, 90%); 
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 150px; 
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.bookmark-icon {
+    width: 33px; 
+    height: 33px; 
+    margin-left: -5px;
+}
+
+.blue-bookmark-icon {
+    width: 25px; 
+    height: 35px; 
+}
+
+.job-title {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.title-bookmark {
+    display: flex;
+}
+
+.bookmark-container {
+    padding-left: 10px;
+}
+
+.job-info {
+    padding: 20px 20px;
+}
+
+.details-button {
+    background-color: hsl(200, 100%, 50%);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: white;
+    width: 100px; 
+    height: 33px;
+}
+
+.details-button:hover {
+    background-color: hsl(200, 100%, 40%);
+}
+
+.undo-button {
+    font-weight: bold;
+    color: hsl(200, 100%, 50%);
+    font-size: 20px;
+    padding-top: 10px;
+    padding-right: 20px; 
+}
+
+.undo-button:hover {
+    color: hsl(200, 100%, 40%);
+}
+
+.removed-job-title {
+    font-size: 20px;
+    margin-bottom: 0; 
+    padding: 10px; 
+}
+
+.removed-message{
+    color: grey; 
+    font-size: 20px;
+}
+
+.center-removed-job {
+    display: flex;
+}
+
+.center-removed-job-details {
+    align-self: center;
+    margin-bottom: 0;
+}
+
+
+
+
