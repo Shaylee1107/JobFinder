@@ -7,21 +7,6 @@ import {HashRouter} from "react-router-dom";
 import FavoritesProvider from './Providers/FavoritesProvider';
 import LoadingProvider from './Providers/LoadingProvider';
 
-async function enableMocking() {
-  if (process.env.NODE_ENV !== 'development') {
-    return
-  }
- 
-  const { worker } = await import('./mocks/browser.js');
- 
-  return await worker.start({
-    serviceWorker: {
-      url: `${process.env.PUBLIC_URL}/mockServiceWorker.js`,
-    },
-  });
-}
- 
-enableMocking().then(() => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <React.StrictMode>
@@ -36,7 +21,7 @@ enableMocking().then(() => {
       </mockServiceWorker>
     </React.StrictMode>
   );
-})
+
  
 
 
