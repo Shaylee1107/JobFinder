@@ -57,6 +57,10 @@ test('if Home renders Job Details', async () => {
   );
 
   await waitFor(() => expect(getByText('Javascript Developer')).toBeInTheDocument());
+  await waitFor(() => expect(getByText('Corporate Project Solutions')).toBeInTheDocument());
+  await waitFor(() => expect(getByText('Marlow, South East England')).toBeInTheDocument());
+  await waitFor(() => expect(getByText('$55000')).toBeInTheDocument());
+  await waitFor(() => expect(getByText("JavaScript Developer Corporate ...")).toBeInTheDocument());
  
 });
 
