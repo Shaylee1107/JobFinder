@@ -57,6 +57,7 @@ const Home = () => {
                  method: "get",
                  url: `https://api.adzuna.com/v1/api/jobs/us/search/${pageNum}?app_id=a7ebf48d&app_key=a31ecdf957770c324646f06209fa554c`,
                }).then((response) => {
+                console.log(response, 'response')
                  setAxiosResults(response.data.results);
                });
                disableLoading();

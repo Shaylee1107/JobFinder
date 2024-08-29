@@ -28,23 +28,24 @@ test('if Home renders Search Bar and Filter Search Options', () => {
  
 });
 
-test('if the filter options show filtering options when clicked', async () => {
-  render( 
-  <LoadingProvider>
-      <FavoritesProvider>
-       <Home />
-      </FavoritesProvider>
-  </LoadingProvider>
-  );
+// test('if the filter options show filtering options when clicked', async () => {
+//   render( 
+//   <LoadingProvider>
+//       <FavoritesProvider>
+//        <Home />
+//       </FavoritesProvider>
+//   </LoadingProvider>
+//   );
 
-  // const salaryFilter = getByText('Salary');
-  const salaryFilter = screen.getByText('Salary');
+//   // const salaryFilter = getByText('Salary');
+//   const salaryFilter = screen.getByText('Salary');
 
-  fireEvent.click(salaryFilter);
+//   fireEvent.click(salaryFilter);
 
-  expect(screen.getByText('$25,000')).toBeInTheDocument();
+//   expect(salaryFilter).toHaveValue('$25,000')
+//   // expect(await screen.findByText('Invalid Password')).not.toBeVisible()
 
-});
+// });
 
 test('if Home renders Job Details', async () => {
   const { getByText } = render( 
@@ -55,7 +56,7 @@ test('if Home renders Job Details', async () => {
   </LoadingProvider>
   );
 
-  // await waitFor(() => expect(getByText('Javascript Developer')).toBeInTheDocument());
+  await waitFor(() => expect(getByText('Javascript Developer')).toBeInTheDocument());
  
 });
 

@@ -13,6 +13,7 @@ const JobListingContainer = ({ axiosResults }) => {
                 </div>
             )
         }
+
         return (axiosResults.map((job) => {
                  return (
                  <JobListing 
