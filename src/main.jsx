@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {HashRouter} from "react-router-dom";
 import FavoritesProvider from './Providers/FavoritesProvider';
 import LoadingProvider from './Providers/LoadingProvider';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 
-  const root = ReactDOM.createRoot(document.getElementById('root'));
-  root.render(
-    <React.StrictMode>
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
       <mockServiceWorker>
       <LoadingProvider>
       <FavoritesProvider>
@@ -19,10 +20,24 @@ import LoadingProvider from './Providers/LoadingProvider';
       </FavoritesProvider>
       </LoadingProvider>
       </mockServiceWorker>
-    </React.StrictMode>
+    </StrictMode>
   );
 
- 
+
+  // const root = ReactDOM.createRoot(document.getElementById('root'));
+  // root.render(
+  //   <StrictMode>
+  //     <mockServiceWorker>
+  //     <LoadingProvider>
+  //     <FavoritesProvider>
+  //       <HashRouter>
+  //         <App />
+  //       </HashRouter>
+  //     </FavoritesProvider>
+  //     </LoadingProvider>
+  //     </mockServiceWorker>
+  //     </StrictMode>
+  // );
 
 
 // If you want to start measuring performance in your app, pass a function
