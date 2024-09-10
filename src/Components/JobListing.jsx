@@ -84,7 +84,7 @@ const JobListings = ({ title, company, location, salary, description, companyWeb
                     src={blueBookmark}
                     className="blue-bookmark-icon" 
                     onClick={() => manageBookMark()}
-                    alt="bookmark icon" 
+                    alt="blue bookmark icon" 
                   />
                 </div>
             )
