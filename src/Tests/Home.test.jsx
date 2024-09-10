@@ -5,9 +5,6 @@ import Home from '../Pages/Home';
 import LoadingProvider from '../Providers/LoadingProvider';
 import { waitFor } from '@testing-library/react';
 import FavoritesProvider from '../Providers/FavoritesProvider';
-// import { jest } from '@jest/globals';
-
-// window.scrollTo = jest.fn();
 
 test('if Home renders Search Bar and Filter Search Options', () => {
   const { getByText } = render( 
@@ -63,4 +60,20 @@ test('if Home renders Job Details', async () => {
   await waitFor(() => expect(getByText("JavaScript Developer Corporate ...")).toBeInTheDocument());
  
 });
+
+test('if bookmark shows and then turns blue when clicked', async () => {
+  const { getByAltText } = render( 
+    <LoadingProvider>
+        <FavoritesProvider>
+         <Home />
+        </FavoritesProvider>
+    </LoadingProvider>
+    );
+ 
+    const bookmark = await waitFor(() => getByAltText('bookmark icon'));
+    expect(bookmark).toBeInTheDocument();
+
+    fireEvent.click(bookmark);
+    await waitFor(() => expect(getByAltText('blue bookmark icon')).toBeInTheDocument()); 
+})
 
